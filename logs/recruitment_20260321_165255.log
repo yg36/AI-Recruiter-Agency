@@ -1,0 +1,20 @@
+2026-03-21 16:53:13,479 - AI_Recruiter - ERROR - Error processing resume: Client.__init__() got an unexpected keyword argument 'proxies'
+2026-03-21 16:53:13,481 - AI_Recruiter - ERROR - Processing error: Client.__init__() got an unexpected keyword argument 'proxies'
+Traceback (most recent call last):
+  File "E:\YG\codes\Python\ollama\AI recruiter agency\app.py", line 128, in main
+    result = asyncio.run(process_resume(file_path))
+  File "C:\Users\yogit\AppData\Local\Programs\Python\Python310\lib\asyncio\runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "C:\Users\yogit\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "E:\YG\codes\Python\ollama\AI recruiter agency\app.py", line 53, in process_resume
+    orchestrator = OrchestratorAgent()
+  File "E:\YG\codes\Python\ollama\AI recruiter agency\agents\orchestrator.py", line 12, in __init__
+    super().__init__(
+  File "E:\YG\codes\Python\ollama\AI recruiter agency\agents\base_agent.py", line 10, in __init__
+    self.ollama_client = OpenAI(
+  File "E:\YG\codes\Python\ollama\AI recruiter agency\venv\lib\site-packages\openai\_client.py", line 112, in __init__
+    super().__init__(
+  File "E:\YG\codes\Python\ollama\AI recruiter agency\venv\lib\site-packages\openai\_base_client.py", line 793, in __init__
+    self._client = http_client or SyncHttpxClientWrapper(
+TypeError: Client.__init__() got an unexpected keyword argument 'proxies'
