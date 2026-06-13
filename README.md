@@ -1,117 +1,72 @@
-🧠 AI Recruiter Agent
-Local RAG + Multi-Agent Resume Analysis System
+# AI Recruiter Agency
 
-An intelligent, fully local AI-powered recruiter assistant that analyzes resumes, enhances candidate profiles, and generates insights using LLMs, RAG (Retrieval-Augmented Generation), and agent-based architecture — all powered by Ollama (no external APIs required).
+Local multi-agent resume analysis and candidate screening system built for recruiter-style workflows.
 
-🚀 Features
-📄 Resume Parsing
-Extract structured data (skills, experience, roles) from PDF resumes
-🧠 AI Profile Enhancement Agent
-Generates improved summaries and insights from extracted data
-🔍 RAG-based Question Answering
-Ask questions about resumes using vector search + LLM reasoning
-🤖 Multi-Agent System
-Modular agents (Orchestrator, Profile Enhancer, etc.) for scalable workflows
-🏠 Fully Local LLM (Ollama)
-Runs completely offline — no OpenAI API required
-⚡ Interactive UI (Streamlit)
-Upload resumes and query insights in a simple web interface
-🏗️ Tech Stack
-LLM: Ollama (Llama3, Mistral, etc.)
-Embeddings: nomic-embed-text
-Framework: LangChain
-Vector Database: ChromaDB
-Frontend: Streamlit
-PDF Processing: Unstructured, pdfminer
-Agents: Custom modular agent architecture
-🧩 Architecture
-PDF Resume
-    ↓
-Document Loader (Unstructured)
-    ↓
-Text Splitting (Chunks)
-    ↓
-Embeddings (Ollama)
-    ↓
-Vector DB (Chroma)
-    ↓
-Retriever (RAG)
-    ↓
-LLM (Ollama)
-    ↓
-Agent System (Enhancer / Orchestrator)
-    ↓
-Final Output (Insights + Summary)
-💡 Use Cases
-AI-powered resume screening
-Candidate profile enhancement
-HR automation tools
-Personal career assistant
-Document-based Q&A system
-⚙️ Installation & Setup
-1. Clone the repository
-git clone https://github.com/<your-username>/ai-recruiter-agent.git
-cd ai-recruiter-agent
-2. Create virtual environment (Python 3.10 recommended)
-python3.10 -m venv venv
-venv\Scripts\activate
-3. Install dependencies
+This project is a practical AI/ML portfolio piece: it combines resume parsing, structured profile extraction, agent orchestration, candidate-job matching, screening recommendations, local LLM usage, and a Streamlit interface.
+
+## Why This Project Matters
+
+Recruiters do not only need a chatbot. They need a workflow that can read messy resumes, extract structured signals, compare candidates with job criteria, explain gaps, and produce usable screening output. This repo models that workflow as a set of focused agents instead of one large prompt.
+
+## Core Capabilities
+
+- Resume parsing and profile extraction from candidate documents
+- Multi-agent orchestration for extraction, analysis, matching, screening, and recommendations
+- Local LLM workflow designed around Ollama, so sensitive resumes do not need external APIs
+- Candidate-job matching against a seeded job database
+- Streamlit UI for uploading resumes and reviewing structured outputs
+- Logging/error-handling utilities separated from agent logic
+
+## Agent Architecture
+
+- Extractor agent: converts resume text into structured candidate data
+- Analyzer agent: identifies skills, experience, education, strengths, and gaps
+- Matcher agent: compares candidate profile against job requirements
+- Screener agent: produces screening-oriented decisions and notes
+- Recommender agent: suggests profile and role-fit improvements
+- Orchestrator agent: coordinates the end-to-end workflow
+
+## Tech Stack
+
+Python, Streamlit, Ollama/local LLMs, SQLite schema/seed scripts, modular agent classes, structured logging.
+
+## Repository Map
+
+```text
+agents/   Agent classes and orchestration logic
+data/     Job data access helpers
+db/       Schema and seed scripts for local job data
+tools/    Supporting utilities for workflow execution
+utils/    Logging and custom exceptions
+app.py    Streamlit application entrypoint
+```
+
+## Run Locally
+
+1. Install Python dependencies:
+
+```bash
 pip install -r requirements.txt
-4. Install & Run Ollama
+```
 
-Download Ollama: https://ollama.com
+2. Start Ollama locally and make sure the model used by the app is available.
 
-Pull required models:
+3. Seed or initialize the local job database if needed:
 
-ollama pull llama3
-ollama pull nomic-embed-text
-5. Run the application
+```bash
+python db/seed_jobs.py
+```
+
+4. Run the Streamlit app:
+
+```bash
 streamlit run app.py
+```
 
-Open in browser:
+## Recruiter Notes
 
-http://localhost:8501
-📁 Project Structure
-AI-Recruiter-Agent/
-│
-├── app.py                     # Streamlit UI
-├── agents/
-│   ├── base_agent.py
-│   ├── orchestrator.py
-│   └── profile_enhancer.py
-│
-├── data/
-│   └── sample_resume.pdf
-│
-├── chroma_db/                # Vector database
-├── requirements.txt
-└── README.md
-🔮 Future Improvements
-Resume scoring & ranking system (ATS-style)
-Job description matching
-Memory-enabled agents
-Multi-candidate comparison dashboard
-Docker deployment
-API backend (FastAPI)
-⚠️ Notes
-Ensure Ollama is running locally (http://localhost:11434)
-Use Python 3.10 for best compatibility
-Avoid mixing OpenAI API unless explicitly needed
-⭐ Why This Project Stands Out
+This repo demonstrates AI system design more than UI polish: decomposition into agents, local LLM workflow design, structured candidate analysis, and a recruiter-facing product flow.
 
-Unlike basic chatbot projects, this system combines:
+## Cleanup Done
 
-RAG (Retrieval-Augmented Generation)
-Multi-agent architecture
-Fully local LLM execution
-Real-world use case (recruitment automation)
-
-👉 End-to-end pipeline: PDF → Insights → AI-enhanced profile
-
-👨‍💻 Author
-
-Built with focus on:
-
-AI systems engineering
-LLM applications
-Real-world ML use cases
+Runtime artifacts such as virtual environments, Python caches, logs, generated results, and local SQLite files should not be committed. The repo is configured to keep source code and reproducible setup files only.
