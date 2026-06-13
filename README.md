@@ -1,72 +1,46 @@
 # AI Recruiter Agency
 
-Local multi-agent resume analysis and candidate screening system built for recruiter-style workflows.
+## Overview
 
-This project is a practical AI/ML portfolio piece: it combines resume parsing, structured profile extraction, agent orchestration, candidate-job matching, screening recommendations, local LLM usage, and a Streamlit interface.
+Local multi-agent AI recruiter assistant for resume parsing, profile analysis, matching, screening, and recommendations.
 
-## Why This Project Matters
+Project type: Python project.
 
-Recruiters do not only need a chatbot. They need a workflow that can read messy resumes, extract structured signals, compare candidates with job criteria, explain gaps, and produce usable screening output. This repo models that workflow as a set of focused agents instead of one large prompt.
+## What This Repository Contains
 
-## Core Capabilities
-
-- Resume parsing and profile extraction from candidate documents
-- Multi-agent orchestration for extraction, analysis, matching, screening, and recommendations
-- Local LLM workflow designed around Ollama, so sensitive resumes do not need external APIs
-- Candidate-job matching against a seeded job database
-- Streamlit UI for uploading resumes and reviewing structured outputs
-- Logging/error-handling utilities separated from agent logic
-
-## Agent Architecture
-
-- Extractor agent: converts resume text into structured candidate data
-- Analyzer agent: identifies skills, experience, education, strengths, and gaps
-- Matcher agent: compares candidate profile against job requirements
-- Screener agent: produces screening-oriented decisions and notes
-- Recommender agent: suggests profile and role-fit improvements
-- Orchestrator agent: coordinates the end-to-end workflow
+- `README.md`
+- `agents/__init__.py`
+- `agents/analyzer_agent.py`
+- `agents/base_agent.py`
+- `agents/extractor_agent.py`
+- `agents/matcher_agent.py`
+- `agents/orchestrator.py`
+- `agents/profile_enhancer_agent.py`
+- `agents/recommender_agent.py`
+- `agents/screener_agent.py`
+- `app.py`
+- `requirements.txt`
 
 ## Tech Stack
 
-Python, Streamlit, Ollama/local LLMs, SQLite schema/seed scripts, modular agent classes, structured logging.
+Python, Streamlit
 
-## Repository Map
-
-```text
-agents/   Agent classes and orchestration logic
-data/     Job data access helpers
-db/       Schema and seed scripts for local job data
-tools/    Supporting utilities for workflow execution
-utils/    Logging and custom exceptions
-app.py    Streamlit application entrypoint
-```
-
-## Run Locally
-
-1. Install Python dependencies:
+## How To Run / Use
 
 ```bash
+python -m venv .venv
+.venv\Scripts\activate
 pip install -r requirements.txt
-```
-
-2. Start Ollama locally and make sure the model used by the app is available.
-
-3. Seed or initialize the local job database if needed:
-
-```bash
-python db/seed_jobs.py
-```
-
-4. Run the Streamlit app:
-
-```bash
 streamlit run app.py
 ```
 
-## Recruiter Notes
+## Current Status
 
-This repo demonstrates AI system design more than UI polish: decomposition into agents, local LLM workflow design, structured candidate analysis, and a recruiter-facing product flow.
+This repository has enough structure to be understandable from the README and file layout.
 
-## Cleanup Done
+## Notes For Reviewers
 
-Runtime artifacts such as virtual environments, Python caches, logs, generated results, and local SQLite files should not be committed. The repo is configured to keep source code and reproducible setup files only.
+- Start with the overview and key files above.
+- If this is a notebook repository, run it in a clean Jupyter or VS Code notebook environment.
+- If this is a frontend app, run the install/build commands before judging the project.
+- Some older practice repositories are kept public for learning history, not as primary portfolio pieces.
