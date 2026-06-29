@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  background: #f7f7f4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: #17202a;
+  background:
+    linear-gradient(135deg, rgba(15, 118, 110, 0.08), transparent 34%),
+    linear-gradient(225deg, rgba(183, 121, 31, 0.12), transparent 32%),
+    #f7f7f4;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(15, 118, 110, 0.35);
+  outline-offset: 2px;
+}

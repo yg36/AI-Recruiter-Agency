@@ -16,11 +16,20 @@ env/
 logs/
 results/
 *.log
+uploads/analysis/
 
 # Local databases
 *.sqlite
 *.sqlite3
 db/*.sqlite
+backend/data/*.sqlite3
+
+# Frontend
+node_modules/
+.next/
+*.tsbuildinfo
+dist/
+coverage/
 
 # OS/editor
 .DS_Store
